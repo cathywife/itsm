@@ -15,7 +15,14 @@ Including another URLconf
 """
 from django.conf.urls import url
 from django.contrib import admin
+from ldtk  import  views
+from django.conf.urls.static import static
+
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
-]
+    url(r'^index/', views.index),
+	url(r'^home/', views.home),
+	url(r'^register/', views.register),
+	url(r'^dash/', views.dashboard),
+	]
