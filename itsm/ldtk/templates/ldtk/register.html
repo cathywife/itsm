@@ -21,26 +21,75 @@
 
   <body>
 
-    <div class="container">
+  
+      <nav class="navbar navbar-inverse navbar-fixed-top">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" >四川理德泰克科技有限公司</a>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+          <form class="navbar-form navbar-right" method="POST">
+            {% csrf_token %}
+			<div class="form-group">
+              <input type="email" placeholder="邮箱地址" class="form-control">
+            </div>
+            <div class="form-group">
+              <input type="password" placeholder="Password" class="form-control">
+            </div>
+            <button  type="submit" class="btn btn-success">登陆</button>
+			<a  type="button" class="btn btn-info" href="register.html" > 注册</a>
+			
+		  </form>
+        </div><!--/.navbar-collapse -->
+      </div>
+    </nav>
 
+<br></br>
+<br></br>
+<br></br>
+<div class="container">
       <form class="form-register" method="post">
 	  {% csrf_token %}
+	  <div>
         <h2 class="form-register-heading">欢迎注册</h2>
-        <label for="inputEmail" class="sr-only">请输入你的手机号码</label>
-        <input type="email" id="inputEmail" class="form-control" placeholder="请输入你的电子邮箱地址" required autofocus>
-        <label for="inputPassword" class="sr-only">请输入你的密码</label>
+      </div>
+	  <div>
+		  <label  class="control-label" for="inputemail" >请输入你的用户名</label>
+				<input type="text"   name="username" class="form-control" placeholder="请输入你的用户名" required autofocus>
+				<span class="glyphicon glyphicon-ok form-control-feedback" aria-hidden="true"></span>
+				<span id="inputSuccess2Status" class="sr-only">(success)</span>
+				
+	 </div>
+	  <div class="form-group">
 		
-        <input type="password" id="inputPassword" class="form-control" placeholder="请输入你的密码" required>
+			<label for="inputPassword" >请输入你的密码</label>
+		
+			<input type="password"  name="userpwd" class="form-control" placeholder="请输入你的密码" required>
         
-        <div class="checkbox">
-          <label>
-            <input type="checkbox" value="remember-me"> 检查账号是否可用
-          </label>
-        </div>
-        <button class="btn btn-lg btn-primary btn-block" type="submit">提交</button>
-      </form>
+	  </div>
+       <!--  <div class="form-group">
+        
+		<label for="inputPassword" >请再次输入你的密码</label>
+		
+        <input type="password repeat"  name="userpwd" class="form-control" placeholder="请输入你的密码" required>
+        
+       
+        </div> -->
+        <label>
+			<button class="btn btn-lg btn-primary btn-block" type="submit">提交</button>
+		</label>
+	  
+	  
+	  </form>
+</div>
 
-    </div> <!-- /container -->
+    <!-- /container -->
 
 
     <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
