@@ -4,17 +4,20 @@ from django.db import models
 class itsmsj(models.Model):
 	sjid=models.IntegerField(default=0)
 	
+	
+class gongju(models.Model):
+		name=models.CharField(max_length=20)
+	
+class shebeileixin(models.Model):
+		sblx_name=models.CharField(max_length=100)
+
+class biaoqian(models.Model):
+	name=models.CharField(max_length=20)
+	
 class user_group(models.Model):
 	ug_name=models.CharField(max_length=100)
-
-class itsmzsk(models.Model):
-		zsk_name=models.CharField(max_length=200)
-		
-
-class itsmwt(models.Model):
-		wt_name=models.CharField(max_length=100)
-		
-
+	
+	
 class yonghudanwei(models.Model):
 		yhdw_name=models.CharField(max_length=100)
 		yhdw_address=models.CharField(max_length=100)
@@ -30,6 +33,17 @@ class yonghu(models.Model):
 		yh_dan=models.ForeignKey(yonghudanwei)
 		yh_descripition=models.CharField(max_length=100)
 		yh_birthday=models.DateTimeField()
+
+class itsmzsk(models.Model):
+		zsk_name=models.CharField(max_length=200)
+		zsk_sblx=models.ForeignKey(shebeileixin)
+
+
+class itsmwt(models.Model):
+		wt_name=models.CharField(max_length=100)
+		
+
+
 		
 
 class fuwufanwei(models.Model):
@@ -40,8 +54,6 @@ class xjitem(models.Model):
 		xjitem_name=models.CharField(max_length=100)
 		xjitem_group=models.ForeignKey(fuwufanwei)
 		
-class shebeileixin(models.Model):
-		sblx_name=models.CharField(max_length=100)
 
 		
 class shebei(models.Model):

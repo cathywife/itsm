@@ -7,6 +7,7 @@ from django.template import loader,Context
 from django import forms
 
 
+
 # Create your views here.
 
 class UserForm(forms.Form):
@@ -36,6 +37,9 @@ def register(req):
 	else:
 		form=UserForm()
 	return render(req,'ldtk/register.html',{})
+	
+def zsk(req):
+		return render(req,'ldtk/dashboar.html',{})
 
 	
 	
