@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
 
-    <title>用户注册</title>
+    <title>用户登录</title>
 
 	<!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
 	 <link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
@@ -59,7 +59,7 @@
 <div class="container"  >
 	
 	<div  class="col-lg-6 col-md-6 col-sm-12 col-xs-12  col-lg-push-3 col-md-push-3" >
-	<h1 class="form-register-heading ">欢迎注册</h1>
+	<h1 class="form-register-heading ">欢迎登录</h1>
       <form class="form-register" method="post">
 	  {% csrf_token %}
 	        <div class="row">
@@ -75,40 +75,12 @@
 			<tr>
                 <th>请输入你的密码</th>
                 <th>
-					<input type="password"  name="username" class="form-control" placeholder="请输入你的密码" required>
+					<input type="password"  name="userpwd" class="form-control" placeholder="请输入你的密码" required>
 				</th>
 			</tr>
+
 			<tr>
-                <th>请输入用户名</th>
-                <th>
-					<input type="password"  name="username" class="form-control" placeholder="请输入你的密码" required>
-				</th>
-			</tr>
-			<tr>
-                <th >姓</th>
-                <th>
-					<input type="text"  name="username" class="form-control" placeholder="Firstname" required>
-				</th>
-			</tr>
-			<tr>
-				<th>名</th>
-                <th>
-					<input type="text"  name="username" class="form-control" placeholder="Lastname" required>
-				</th>
-			</tr>
-			<tr>
-				<th>性别</th>
-                <th>
-						  <span class="input-group-addon">男士
-							<input type="radio" name="radio" value="1">
-						  </span>
-						  <span class="input-group-addon">女士
-							<input type="radio" name="radio" value="2">
-						  </span>
-				</th>
-			</tr>
-			<tr>
-				<th class=" btn btn-info btn-lg">注  册</th>
+				<button  class=" btn btn-info btn-lg">登录</button>
 			</tr>
 			
 
