@@ -25,4 +25,5 @@ urlpatterns = [
 	url(r'^home/', views.home),
 	url(r'^register/', views.register),
 	url(r'^dash/', views.dashboard),
+    url(r'^zsk/', views.zsk),
 	]

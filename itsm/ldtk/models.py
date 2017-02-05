@@ -1,15 +1,21 @@
 from django.db import models
+from django.contrib.auth.models import User 
 
 # Create your models here.
 class itsmsj(models.Model):
 	sjid=models.IntegerField(default=0)
+
 	
-	
+class gongjuleixin()
+		name=models.CharField(max_length=30)
+		
 class gongju(models.Model):
 		name=models.CharField(max_length=20)
+		leixin=models.ForeignKey(gongjuleixin)
 	
 class shebeileixin(models.Model):
-		sblx_name=models.CharField(max_length=100)
+		name=models.CharField(max_length=100)
+		
 
 class biaoqian(models.Model):
 	name=models.CharField(max_length=20)
@@ -36,7 +42,8 @@ class yonghu(models.Model):
 
 class itsmzsk(models.Model):
 		zsk_name=models.CharField(max_length=200)
-		zsk_sblx=models.ForeignKey(shebeileixin)
+		zsk_chulifangfan=models.CharField(max_length=500)
+	
 
 
 class itsmwt(models.Model):

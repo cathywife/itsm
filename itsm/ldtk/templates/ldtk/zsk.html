@@ -16,10 +16,14 @@
 
     <!-- Custom styles for this template -->
     <link href="theme.css" rel="stylesheet">
+	<script type="text/javascript">
+				//var itzsk= new	Object();
+				//itzsk = {{form}};
+	//	alert('1');		
+		//alert(itzsk.all()+1);
+		//alert('11');
+	</script>
 
-    <!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
-    <!--[if lt IE 9]><script src="../../assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
-    <script src="../../assets/js/ie-emulation-modes-warning.js"></script>
 
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
@@ -68,8 +72,8 @@
 
       <!-- Main jumbotron for a primary marketing message or call to action -->
       <div class="jumbotron">
-        <h1>{{title}}</h1>
-        <p>目前知识库共有知识条目合计{{item_totle}}条</p>
+        <h1>YUN知识库</h1>
+        <p>目前知识库共有知识条目合计{{b}}条</p>
       </div>
 
 
@@ -83,9 +87,9 @@
       </div>
 
 
-      <div class="page-header">
-        <h1>知识库最近10条目</h1>
-      </div>
+      <blockquote >
+        <h1>知识库最近5条目</h1>
+      </blockquote>
       <div class="row">
         <div class="col-md-12">
           <table class="table table-striped table-hover">
@@ -99,24 +103,14 @@
               </tr>
             </thead>
             <tbody>
+			{% for aa in form %}
               <tr>
-                <td>{{table1-1-1}}</td>
-                <td>{{table1-1-2}</td>
-                <td>{{table1-1-3}</td>
-                <td>{{table1-1-4}</td>
+                <td>{{aa.zsk_name}}</td>
+                <td>{{aa.zsk_name}}</td>
+                <td>{{aa.zsk_name}}</td>
+                <td>{{aa.zsk_name}}</td>
               </tr>
-              <tr>
-                <td>{{table1-2-1}</td>
-                <td>{{table1-2-2}</td>
-                <td>{{table1-2-3}</td>
-                <td>{{table1-2-4}</td>
-              </tr>
-              <tr>
-                <td>{{table1-3-1}</td>
-                <td>{{table1-3-2}</td>
-                <td>{{table1-3-3}</td>
-                <td>{{table1-3-4}</td>
-              </tr>
+			{%endfor%}
             </tbody>
           </table>
         </div>
@@ -126,12 +120,12 @@
 
 
       
-
-      <div class="page-header">
-        <h1>知识库分类</h1>
-      </div>
-      <div class="row">
-        <div class="col-sm-4">
+	 
+      <blockquote >
+        <h1>知识库分类条目</h1>
+      </blockquote>
+     
+        <div class="col-sm-12 col-md-6 ">
           <div class="panel panel-info">
             <div class="panel-heading">
               <h3 class="panel-title">{{item_group1}}</h3>
@@ -149,185 +143,22 @@
 						</thead>
 						<tbody>
 						  <tr>
-							<td type="inline">{{p1_t1_1}}</td>
-							<td>{{p1_t1_2}}</td>
-							<td>{{p1_t1_3}}</td>
-							<td>{{p1_t1_4}}</td>
+							<td>{{p1_t1_1}</td>
+							<td>{{p1_t1_2}</td>
+							<td>{{p1_t1_3}</td>
+							<td>{{p1_t1_4}</td>
 						  </tr>
-						  <tr>
-							<td>{{p1_t2_1}}</td>
-							<td>{{p1_t2_2}}</td>
-							<td>{{p1_t2_3}}</td>
-							<td>{{p1_t2_4}}</td>
-						  </tr>
-						  <tr>
-							<td>{{p1_t3_1}}</td>
-							<td>{{p1_t3_2}}</td>
-							<td>{{p1_t3_3}}</td>
-							<td>{{p1_t3_4}}</td>
-						  </tr>
+
 						</tbody>
 					</table>
 			 
             </div>
           </div>
-          <div class="panel panel-info">
-            <div class="panel-heading">
-              <h3 class="panel-title">{{item_group2}}</h3>
-            </div>
-            <div class="panel-body">
-           			<table class="table table-striped table-hover">
-						<thead>
-							<tr>
-							<th>设备类型</th>
-							<th>故障现象</th>
-							<th>工具</th>
-							<th>建议人数</th>
-							
-						  </tr>
-						</thead>
-						<tbody>
-						
-						  <tr>
-							<td type="inline">{{p1_t1_1}}</td>
-							<td>{{p1_t1_2}}</td>
-							<td>{{p1_t1_3}}</td>
-							<td>{{p1_t1_4}}</td>
-						  </tr>
-						  <tr>
-							<td>{{p1_t2_1}}</td>
-							<td>{{p1_t2_2}}</td>
-							<td>{{p1_t2_3}}</td>
-							<td>{{p1_t2_4}}</td>
-						  </tr>
-						  <tr>
-							<td>{{p1_t3_1}}</td>
-							<td>{{p1_t3_2}}</td>
-							<td>{{p1_t3_3}}</td>
-							<td>{{p1_t3_4}}</td>
-						  </tr>
-						</tbody>
-					</table>
-            </div>
-          </div>
+
         </div><!-- /.col-sm-4 -->
-        <div class="col-sm-4">
-          <div class="panel panel-info">
-            <div class="panel-heading">
-              <h3 class="panel-title">{{item_group3}}</h3>
-            </div>
-            <div class="panel-body">
-           			<table class="table table-striped table-hover">
-						<thead>
-							<tr>
-							<th>设备类型</th>
-							<th>故障现象</th>
-							<th>工具</th>
-							<th>建议人数</th>
-							
-						  </tr>
-						</thead>
-						<tbody>
-						  <tr>
-							<td type="inline">{{p1_t1_1}}</td>
-							<td>{{p1_t1_2}}</td>
-							<td>{{p1_t1_3}}</td>
-							<td>{{p1_t1_4}}</td>
-						  </tr>
-						  <tr>
-							<td>{{p1_t2_1}}</td>
-							<td>{{p1_t2_2}}</td>
-							<td>{{p1_t2_3}}</td>
-							<td>{{p1_t2_4}}</td>
-						  </tr>
-						  <tr>
-							<td>{{p1_t3_1}}</td>
-							<td>{{p1_t3_2}}</td>
-							<td>{{p1_t3_3}}</td>
-							<td>{{p1_t3_4}}</td>
-						  </tr>
-						</tbody>
-					</table>
-            </div>
-          </div>
-          <div class="panel panel-info">
-            <div class="panel-heading">
-              <h3 class="panel-title">{{item_group4}}</h3>
-            </div>
-            <div class="panel-body">
-           			<table class="table table-striped table-hover">
-						<thead>
-							<tr>
-							<th>设备类型</th>
-							<th>故障现象</th>
-							<th>工具</th>
-							<th>建议人数</th>
-							
-						  </tr>
-						</thead>
-						<tbody>
-						  <tr>
-							<td type="inline">{{p1_t1_1}}</td>
-							<td>{{p1_t1_2}}</td>
-							<td>{{p1_t1_3}}</td>
-							<td>{{p1_t1_4}}</td>
-						  </tr>
-						  <tr>
-							<td>{{p1_t2_1}}</td>
-							<td>{{p1_t2_2}}</td>
-							<td>{{p1_t2_3}}</td>
-							<td>{{p1_t2_4}}</td>
-						  </tr>
-						  <tr>
-							<td>{{p1_t3_1}}</td>
-							<td>{{p1_t3_2}}</td>
-							<td>{{p1_t3_3}}</td>
-							<td>{{p1_t3_4}}</td>
-						  </tr>
-						</tbody>
-					</table>
-            </div>
-          </div>
-        </div><!-- /.col-sm-4 -->
-        <div class="col-sm-4">
-          <div class="panel panel-info">
-            <div class="panel-heading">
-              <h3 class="panel-title">{{item_group5}}</h3>
-            </div>
-            <div class="panel-body">
-           			<table class="table table-striped table-hover">
-						<thead>
-							<tr>
-							<th>设备类型</th>
-							<th>故障现象</th>
-							<th>工具</th>
-							<th>建议人数</th>
-							
-						  </tr>
-						</thead>
-						<tbody>
-						  <tr>
-							<td type="inline">{{p1_t1_1}}</td>
-							<td>{{p1_t1_2}}</td>
-							<td>{{p1_t1_3}}</td>
-							<td>{{p1_t1_4}}</td>
-						  </tr>
-						  <tr>
-							<td>{{p1_t2_1}}</td>
-							<td>{{p1_t2_2}}</td>
-							<td>{{p1_t2_3}}</td>
-							<td>{{p1_t2_4}}</td>
-						  </tr>
-						  <tr>
-							<td>{{p1_t3_1}}</td>
-							<td>{{p1_t3_2}}</td>
-							<td>{{p1_t3_3}}</td>
-							<td>{{p1_t3_4}}</td>
-						  </tr>
-						</tbody>
-					</table>
-            </div>
-          </div>
+	
+
+		<div class="col-sm-12 col-md-6">
           <div class="panel panel-info">
             <div class="panel-heading">
               <h3 class="panel-title">其他...</h3>
@@ -344,36 +175,20 @@
 						  </tr>
 						</thead>
 						<tbody>
-						  <tr>
-							<td type="inline">{{p1_t1_1}}</td>
-							<td>{{p1_t1_2}}</td>
-							<td>{{p1_t1_3}}</td>
-							<td>{{p1_t1_4}}</td>
-						  </tr>
-						  <tr>
-							<td>{{p1_t2_1}}</td>
-							<td>{{p1_t2_2}}</td>
-							<td>{{p1_t2_3}}</td>
-							<td>{{p1_t2_4}}</td>
-						  </tr>
-						  <tr>
-							<td>{{p1_t3_1}}</td>
-							<td>{{p1_t3_2}}</td>
-							<td>{{p1_t3_3}}</td>
-							<td>{{p1_t3_4}}</td>
-						  </tr>
+
 						</tbody>
 					</table>
             </div>
-          </div>
+			</div>
+         
         </div><!-- /.col-sm-4 -->
-      </div>
+      
 
-
-      <div class="page-header">
-        <h1>Thank You</h1>
-      </div>
-   
+		 <div class="col-sm-12">
+			  <div class="page-header">
+				<h1>Thank You</h1>
+			  </div>
+		</div>
 
     </div> <!-- /container -->
 
@@ -382,10 +197,6 @@
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-    <script>window.jQuery || document.write('<script src="../../assets/js/vendor/jquery.min.js"><\/script>')</script>
-    <script src="../../dist/js/bootstrap.min.js"></script>
-    <script src="../../assets/js/docs.min.js"></script>
-    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
-    <script src="../../assets/js/ie10-viewport-bug-workaround.js"></script>
+
   </body>
 </html>

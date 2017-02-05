@@ -6,6 +6,8 @@ from django.http import HttpResponse
 from django.template import loader,Context
 from django import forms
 from django.contrib.auth.models import User 
+from ldtk.models import itsmzsk
+
 
 
 # Create your views here.
@@ -33,7 +35,8 @@ def register(req):
 	return render(req,'ldtk/register.html',{})
 	
 def zsk(req):
-		return render(req,'ldtk/dashboar.html',{})
+		zsk=itsmzsk.objects.all()
+		return render(req,'ldtk/zsk.html',{'form':zsk})
 
 	
 	
