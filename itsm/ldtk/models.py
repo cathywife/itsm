@@ -1,5 +1,6 @@
 from django.db import models
 from django.contrib.auth.models import User 
+from django.forms import  ModelForm
 
 # Create your models here.
 class itsmsj(models.Model):
@@ -62,7 +63,7 @@ class yonghu(models.Model):
 
 class itsmzsk(models.Model):
 		zsk_name=models.CharField(max_length=200)
-		zsk_chulifangfan=models.CharField(max_length=500)
+		zsk_chulifangfan=models.TextField()
 		shijian=models.DateTimeField(auto_now_add=True)
 		gongju=models.ManyToManyField(gongju)
 		jianyirenshu=models.IntegerField(default=1)
@@ -70,12 +71,16 @@ class itsmzsk(models.Model):
 		shebei=models.ForeignKey(shebei,default=1)
 		shenpi=models.BooleanField(default=False)
 		fabu=models.BooleanField(default=False)
-		
-		
+			
 		
 		def __str__(self): 
 			return self.zsk_name 
-	
+
+
+class zskform(ModelForm):
+		class Meta:
+			model =	itsmzsk
+			fields = ['zsk_name','zsk_chulifangfan','gongju','jianyirenshu','gongxianzhe']
 
 
 class itsmwt(models.Model):

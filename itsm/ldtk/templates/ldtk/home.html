@@ -32,18 +32,30 @@
           <a class="navbar-brand" >四川理德泰克科技有限公司</a>
         </div>
         <div id="navbar" class="navbar-collapse collapse">
+		{%if user.is_authenticated %}
+		   <div class="navbar-form navbar-right" >
+            {% csrf_token %}
+            <div class="form-group">
+            <p class="btn btn-info"> 欢迎 {%firstof user.get_short_name user.get_username%}</p>
+            </div>			
+			
+			<a  type="button" class="btn btn-danger" href="/register" > 注销</a>
+			
+		  </div>
+		{% else %}
           <form class="navbar-form navbar-right" method="POST">
             {% csrf_token %}
 			<div class="form-group">
-              <input type="text" placeholder="Phone" name ="username" class="form-control">
+              <input type="text" name ="username" class="form-control" required>
             </div>
             <div class="form-group">
-              <input type="password" name="userpwd" placeholder="Password" class="form-control">
+              <input type="password" name="userpwd"  class="form-control" required>
             </div>
             <button  type="submit" class="btn btn-success">登陆</button>
-			<a  type="button" class="btn btn-info" href="register.html" > 注册</a>
+			<a  type="button" class="btn btn-info" href="/register" > 注册</a>
 			
 		  </form>
+		{%endif%}
         </div><!--/.navbar-collapse -->
       </div>
     </nav>
@@ -51,9 +63,9 @@
     <!-- Main jumbotron for a primary marketing message or call to action -->
     <div class="jumbotron">
       <div class="container">
-        <h1>{{home_title}}</h1>
-        <p>{{home_text}}</p>
-        <p><a class="btn btn-primary btn-lg" href="#" role="button">更多 &raquo;</a></p>
+        <h2>四川理德泰克科技有限公司</h2>
+        <h2>欢迎您</h2>
+        <p><a class="btn btn-primary btn-lg" href="/zsk" role="button">知识库 &raquo;</a></p>
       </div>
     </div>
 
@@ -65,31 +77,30 @@
           <p>
 		  
 		  </p>
-          <p><a class="btn btn-default" href="#" role="button">View details &raquo;</a></p>
+          <p><a class="btn btn-default" href="/xmgl" role="button">View details &raquo;</a></p>
         </div>
         <div class="col-md-6">
           <h2>运维服务</h2>
           <p>
 
 		  </p>
-          <p><a class="btn btn-default" href="#" role="button">View details &raquo;</a></p>
+          <p><a class="btn btn-default" href="/ywfw" role="button">View details &raquo;</a></p>
        </div>
       </div>
 	  <div class="row">
         <div class="col-md-6">
           <h2>企业文化</h2>
           <p>
-			  <>
-			  <>
+	
 		  </p>
-          <p><a class="btn btn-default" href="#" role="button">View details &raquo;</a></p>
+          <p><a class="btn btn-default" href="/about" role="button">View details &raquo;</a></p>
         </div>
         <div class="col-md-6">
           <h2>联系我们</h2>
           <p>
 
 		  </p>
-          <p><a class="btn btn-default" href="#" role="button">View details &raquo;</a></p>
+          <p><a class="btn btn-default" href="/contactus" role="button">View details &raquo;</a></p>
        </div>
       </div>
 	  
