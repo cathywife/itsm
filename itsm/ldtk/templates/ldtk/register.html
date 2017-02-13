@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="widtr=device-widtr, initial-scale=1">
 
 
     <title>用户注册</title>
@@ -12,7 +12,7 @@
 	 <link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 
 	<!-- 可选的 Bootstrap 主题文件（一般不用引入） -->
-	<link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+	<link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap-treme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
 
 
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
@@ -25,33 +25,7 @@
   <body>
 
   
-      <nav class="navbar navbar-inverse navbar-fixed-top">
-      <div class="container">
-        <div class="navbar-header">
-          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
-            <span class="sr-only">Toggle navigation</span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </button>
-          <a class="navbar-brand" >知识库</a>
-        </div>
-        <div id="navbar" class="navbar-collapse collapse">
-          <form class="navbar-form navbar-right" method="POST">
-            {% csrf_token %}
-			<div class="form-group">
-              <input type="email" placeholder="邮箱地址" class="form-control">
-            </div>
-            <div class="form-group">
-              <input type="password" placeholder="Password" class="form-control">
-            </div>
-            <button  type="submit" class="btn btn-success">登陆</button>
-			<a  type="button" class="btn btn-info" href="register.html" > 注册</a>
-			
-		  </form>
-        </div><!--/.navbar-collapse -->
-      </div>
-    </nav>
+{% include "ldtk/top.html" %}
 
 <br></br>
 <br></br>
@@ -60,29 +34,76 @@
 	
 	<div  class="col-lg-6 col-md-6 col-sm-12 col-xs-12  col-lg-push-3 col-md-push-3" >
 	<h1 class="form-register-heading ">欢迎注册</h1>
-      <form class="form-register" method="post">
+	
+	<script>
+		 var chn=false;
+		 var cpw1=false;
+		 var cpw2=false;
+		 document.getElementById("bt01").disabled=true;
+		 
+		function checkusername()
+			{var s=document.getElementById("un1").value;
+			 var	reg=/^(\w){8,20}$/;
+			   if (reg.test(s) != false) 
+				document.getElementById("un1").class="bg-success";
+				else	
+				document.getElementById("un1").class="bg-danger";
+			
+			}
+		
+
+		function checkpwd1()
+			{var s1=document.getElementById("pwd1").value;
+			 var	reg=/^(\w){8,20}$/;
+			   if (reg.test(s1) != false) 
+				document.getElementById("pwd1").class="bg-success";
+				else	
+				document.getElementById("pwd1").class="bg-danger";
+			
+			
+			}
+		function checkpwd2()
+			{	
+
+			var s1=document.getElementById("pwd1").value;
+			var  s2=document.getElementById("pwd2").value;
+				if (s1==s2)
+					document.getElementById("bt01").disabled=false;
+			
+			}
+		
+	
+	
+	</script>
+      <form class="form-register" metrod="post">
 	  {% csrf_token %}
 	        <div class="row">
         <div class="col-md-12">
           <table class="table  table-hover table-responsive">
             <tbody>
 			<tr>
-                <th>请输入用户名</th>
-                <th>
-					<input type="text"  name="username" class="form-control" placeholder="请输入你的账号" required>
-				</th>
+			
+                <tr > <h4  >请输入用户名 </h4></tr>
+                <tr >
+				<div id="und1" class="form-group has-success has-feedback" >
+					<input type="text" id="un1" name="username" class="form-control" onblur="checkusername()" placeholder="账号" required>
+						<span id="uns1"	class="glyphicon glyphicon-ok form-control-feedback" aria-hidden="false" ></span>
+					</div>
+				</tr>
+				
+			
 			</tr>
 			<tr>
-                <th>请输入你的密码</th>
-                <th>
-					<input type="password"  name="userpwd1" class="form-control" placeholder="请输入你的密码" required>
-				</th>
+                <h4>请输入你的密码</h4>
+                <tr>
+					<input type="password" id="pwd1" name="userpwd1" class="form-control" onblur="checkpwd1()" placeholder="密码" required>
+				</tr>
 			</tr>
 			<tr>
-                <th>请输入用户名</th>
-                <th>
-					<input type="password"  name="userpwd2" class="form-control" placeholder="请输入你的密码" required>
-				</th>
+                <h4>请再次输入你的密码</h4>
+                <tr>
+					<input type="password" id="pwd2" name="userpwd2" class="form-control" onblur="checkpwd2()" placeholder="密码" required>
+				</tr>
 			</tr>
 			<tr>
                 <th >姓</th>
@@ -99,7 +120,7 @@
 			<tr>
 				<th>性别</th>
                 <th>
-						  <span class="input-group-addon">男士
+						  <span class="input-group-addon" required>男士
 							<input type="radio" name="radio" value="1">
 						  </span>
 						  <span class="input-group-addon">女士
@@ -117,7 +138,7 @@
         </div>
       </div>
  
-		<button class=" btn btn-info btn-lg" type="submit">注  册</button>
+		<button id="bt01" class=" btn btn-info btn-lg" type="submit" disabled=true >注  册</button>
 	  </form>
 	</div>
 </div>

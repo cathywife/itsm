@@ -25,7 +25,7 @@ urlpatterns = [
     
     url(r'^admin/', admin.site.urls),
     url(r'^client/', views.client),
-	
+	url(r'^logout/', views.zaijian),
 	url(r'^register/', views.register),
 	url(r'^dash/', views.dashboard),
     url(r'^zsk/$', views.zsk),

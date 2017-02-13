@@ -8,7 +8,7 @@ from django import forms
 from django.contrib.auth.models import User 
 from ldtk.models import itsmzsk,shebeileixin
 from django.views import generic  
-from django.contrib.auth import authenticate,login
+from django.contrib.auth import authenticate,login,logout
 from django.contrib import auth
 
 
@@ -71,6 +71,12 @@ def client(req):
 	return render(req,'ldtk/client.html',{})
 
 	
+def zaijian(request):
+		logout(request)
+		return render(request,'ldtk/logout.html',{}) 
+		
+		
+		
 def zskn(req,a):
 		if req.method=='POST':
 			return zsk(req)

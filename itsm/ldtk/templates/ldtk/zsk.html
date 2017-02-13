@@ -1,4 +1,6 @@
+﻿
 <!DOCTYPE html>
+
 <html lang="en">
   <head>
     <meta charset="utf-8">
@@ -35,28 +37,7 @@
   <body>
 
     <!-- Fixed navbar -->
-    <nav class="navbar navbar-inverse navbar-fixed-top">
-      <div class="container">
-        <div class="navbar-header">
-		<a class="navbar-brand" href="#">知识库</a>
-          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar1" >
-            <span class="sr-only ">Toggle navigation</span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </button>
-          
-        </div>
-        <div id="navbar1" class="navbar-collapse collapse">
-          <ul class="nav navbar-nav">
-            <li class="active"><a href="#">首页</a></li>
-            <li><a href="#about">关于</a></li>
-            <li><a href="#contact">联系我们</a></li>
-          </ul>
-        </div><!--/.nav-collapse -->
-      </div>
-    </nav>
-
+	{% include 'ldtk/top.html' %}
     <div class="container theme-showcase" role="main">
 
       <!-- Main jumbotron for a primary marketing message or call to action -->
@@ -126,7 +107,7 @@
       <blockquote >
         <h1>分类条目</h1>
       </blockquote>
-		{% for aa in shebeileixin %}
+			{% for aa in shebeileixin %}
         <div class="col-sm-12 col-md-6 ">
           <div class="panel panel-info">
             <div class="panel-heading">
@@ -178,7 +159,8 @@
 			  </div>
 		</div>
 
-    </div> <!-- /container -->
+    </div>
+<!-- /container -->
 
 
     <!-- Bootstrap core JavaScript
