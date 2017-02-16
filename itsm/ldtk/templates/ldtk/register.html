@@ -45,32 +45,36 @@
 			{var s=document.getElementById("un1").value;
 			 var	reg=/^(\w){8,20}$/;
 			   if (reg.test(s) != false) 
-				document.getElementById("un1").class="bg-success";
+				chn=true;
+				document.getElementById("uns1").setAttribute('class','glyphicon glyphicon-ok form-control-feedback');
 				else	
-				document.getElementById("un1").class="bg-danger";
+				document.getElementById("uns1").setAttribute('class','glyphicon glyphicon-remove form-control-feedback');
+			
+			}
+		function checkpwd1()
+			{var s=document.getElementById("pwd1").value;
+			 var	reg=/^(\w){8,20}$/;
+			   if (reg.test(s) != false)
+				cpw1=true;
+				document.getElementById("pws1").setAttribute('class','glyphicon glyphicon-ok form-control-feedback');
+				else	
+				document.getElementById("pws1").setAttribute('class','glyphicon glyphicon-remove form-control-feedback');
+			
+			}
+		function checkpwd2()
+			{var s1=document.getElementById("pwd1").value;
+			 var s2=document.getElementById("pwd2").value;
+			 
+			   if (s1==s2)
+				cpw2=true;
+				document.getElementById("pws2").setAttribute('class','glyphicon glyphicon-ok form-control-feedback');
+				else	
+				document.getElementById("pws2").setAttribute('class','glyphicon glyphicon-remove form-control-feedback');
 			
 			}
 		
 
-		function checkpwd1()
-			{var s1=document.getElementById("pwd1").value;
-			 var	reg=/^(\w){8,20}$/;
-			   if (reg.test(s1) != false) 
-				document.getElementById("pwd1").class="bg-success";
-				else	
-				document.getElementById("pwd1").class="bg-danger";
-			
-			
-			}
-		function checkpwd2()
-			{	
-
-			var s1=document.getElementById("pwd1").value;
-			var  s2=document.getElementById("pwd2").value;
-				if (s1==s2)
-					document.getElementById("bt01").disabled=false;
-			
-			}
+	
 		
 	
 	
@@ -85,9 +89,9 @@
 			
                 <tr > <h4  >请输入用户名 </h4></tr>
                 <tr >
-				<div id="und1" class="form-group has-success has-feedback" >
+				<div id="und1" class="form-group  has-feedback" >
 					<input type="text" id="un1" name="username" class="form-control" onblur="checkusername()" placeholder="账号" required>
-						<span id="uns1"	class="glyphicon glyphicon-ok form-control-feedback"   disabled=ture></span>
+						<span id="uns1" class="glyphicon form-control-feedback"	  ></span>
 					</div>
 				</tr>
 				
@@ -96,13 +100,19 @@
 			<tr>
                 <h4>请输入你的密码</h4>
                 <tr>
-					<input type="password" id="pwd1" name="userpwd1" class="form-control" onblur="checkpwd1()" placeholder="密码" required>
+				<div id="pw1" class="form-group  has-feedback" >
+					<input type="password" id="pwd1" name="userpwd1" class="form-control"  onblur="checkpwd1()" placeholder="密码" required>
+					<span id="pws1" class="glyphicon form-control-feedback"	  ></span>
+					</div>
 				</tr>
 			</tr>
 			<tr>
                 <h4>请再次输入你的密码</h4>
                 <tr>
-					<input type="password" id="pwd2" name="userpwd2" class="form-control" onblur="checkpwd2()" placeholder="密码" required>
+				<div id="pw2" class="form-group  has-feedback" >
+					<input type="password" id="pwd2" name="userpwd2" class="form-control"  onblur="checkpwd2()" placeholder="密码" required>
+					<span id="pws2" class="glyphicon form-control-feedback"	  ></span>
+					</div>
 				</tr>
 			</tr>
 			<tr>

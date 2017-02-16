@@ -6,10 +6,11 @@ from django.http import HttpResponse,HttpResponseRedirect
 from django.template import loader,Context
 from django import forms
 from django.contrib.auth.models import User 
-from ldtk.models import itsmzsk,shebeileixin
+from ldtk.models import itsmzsk,shebeileixin,zskform,zichanform
 from django.views import generic  
 from django.contrib.auth import authenticate,login,logout
 from django.contrib import auth
+
 
 
 
@@ -32,7 +33,7 @@ def home(req):
 			else:
 				return	render(req,'ldtk/client.html',{})
 		else:	
-			return render(req,'ldtk/home.html',{})
+			return render(req,'ldtk/home.html',{'form':zskform})
 
 	
 

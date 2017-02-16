@@ -27,7 +27,6 @@ class shebei(models.Model):
 		name=models.CharField(max_length=100,default='aa')
 		sb_lx=models.ForeignKey(shebeileixin,default=1)
 		sb_jcsj=models.DateTimeField()
-		
 		def __str__(self): 
 			return self.name 			
 
@@ -88,48 +87,40 @@ class zskshenpi(models.Model):
 		
 		
 
+
+
+		
+	
+	
+class jifang(models.Model):
+		danwei=models.ForeignKey(yonghudanwei,default=1)
+		weizi=models.CharField(max_length=30)
+	
+class zichan(models.Model):
+			
+			jifang=models.ForeignKey(jifang,null=True)
+			weizi=models.CharField(max_length=60)
+			xinghao=models.CharField(max_length=30)
+			sn=models.CharField(max_length=60)
+			azsj=models.DateTimeField()
+			peizi=models.TextField()
+			jcsj=models.DateTimeField()
+			ztxz=(('ok','ok'),('dxj','daixunjian'),('gz','guzhang'))
+			state=models.CharField(max_length=4,choices=ztxz)
+
+
+def __str__(zsk_name): 
+				return "知识库" 			
+			
 class zskform(ModelForm):
 		class Meta:
 			model =	itsmzsk
-			fields = ['zsk_name','zsk_chulifangfan','gongju','jianyirenshu','gongxianzhe']
+			fields = ['zsk_name','zsk_chulifangfan','gongju','jianyirenshu','fabu']
 
 
-class itsmwt(models.Model):
-		wt_name=models.CharField(max_length=100)
-		
 
-
-		
-
-class fuwufanwei(models.Model):
-		fwfw_name=models.CharField(max_length=100)
-
-
-class xjitem(models.Model):
-		xjitem_name=models.CharField(max_length=100)
-		xjitem_group=models.ForeignKey(fuwufanwei,default=1)
-		
-
-		
-
-	 
-
-		
-class peizhiku(models.Model):
-		pz_iitem=models.ForeignKey(shebei,default=1)
-		pz_user = models.CharField(max_length=100)
-		pz_pwd  = models.CharField(max_length=100)
-	
-class weizhi(models.Model):
-        wz_shen=models.CharField(max_length=30)
-	
-class jifang(models.Model):
-		jf_danwei=models.ForeignKey(yonghudanwei,default=1)
-		
-		jf_weizhi=models.ForeignKey(weizhi,default=1)
-		
-class jigui(models.Model):
-		jg_jf=models.ForeignKey(jifang,default=1)
-		jg_weizhi=models.CharField(max_length=100)
-
-
+class zichanform(ModelForm):
+		class Meta:
+			model =	zichan
+			fields = ['jifang','weizi','xinghao','sn','azsj','peizi','jcsj']
+			
