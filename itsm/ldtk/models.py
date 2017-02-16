@@ -27,6 +27,7 @@ class shebei(models.Model):
 		name=models.CharField(max_length=100,default='aa')
 		sb_lx=models.ForeignKey(shebeileixin,default=1)
 		sb_jcsj=models.DateTimeField()
+		
 		def __str__(self): 
 			return self.name 			
 
@@ -37,8 +38,9 @@ class biaoqian(models.Model):
 		def __str__(self): 
 			return self.name 
 	
-class user_group(models.Model):
-	ug_name=models.CharField(max_length=100)
+class Role(models.Model):
+		name=models.CharField(max_length=100)
+		person=models.ManyToManyField(User)
 	
 	
 	
@@ -49,17 +51,7 @@ class yonghudanwei(models.Model):
 		def __str__(self): 
 			return self.name 
 		
-		
-
-class yonghu(models.Model):
-		yh_name=models.CharField(max_length=50)
-		yh_psw=models.CharField(max_length=20)
-		yh_phone=models.IntegerField()
-		yh_address=models.CharField(max_length=100)
-		yh_dan=models.ForeignKey(yonghudanwei,default=1)
-		yh_descripition=models.CharField(max_length=100)
-		yh_birthday=models.DateTimeField()
-		
+			
 
 class itsmzsk(models.Model):
 		zsk_name=models.CharField(max_length=200)
@@ -76,6 +68,25 @@ class itsmzsk(models.Model):
 		def __str__(self): 
 			return self.zsk_name 
 
+class zskshenpi(models.Model):
+		guandian=models.TextField()
+		renyuan=models.ManyToManyField(User)
+		zsk=models.ForeignKey(itsmzsk)
+		
+		time=models.DateTimeField(auto_now=True)
+		juedings=(
+					('r','reject'),
+					('p','pass'),	
+				 )
+		jueding=models.CharField(max_length=2,
+								 choices=juedings,
+								 default='r',
+								)
+		
+
+
+		
+		
 
 class zskform(ModelForm):
 		class Meta:
@@ -114,7 +125,7 @@ class weizhi(models.Model):
 	
 class jifang(models.Model):
 		jf_danwei=models.ForeignKey(yonghudanwei,default=1)
-		jf_gly=models.ForeignKey(yonghu,default=1)
+		
 		jf_weizhi=models.ForeignKey(weizhi,default=1)
 		
 class jigui(models.Model):
